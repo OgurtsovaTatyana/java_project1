@@ -20,5 +20,7 @@ public class Toy {
     public String toString() {
         return "Toy [id=" + id + ", count=" + count + ", weight=" + weight + ", name=" + name + "]";
     }
-    
+    public static int getNo() {
+        return no;
+    }
 }

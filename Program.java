@@ -2,8 +2,7 @@ package java_project1;
 import java.util.Scanner;
 public class Program {
 public static void main(String[] args) {
-        Toy_shop my_shop=new Toy_shop();
-       
+        Toy_shop my_shop=new Toy_shop();     
      
         my_shop.addToy(new Toy(20, "мишка",2));
         my_shop.addToy(new Toy(10, "кукла",4));
@@ -35,14 +34,32 @@ switch(choice){
     
     break;
     case 3:
-    System.out.println("---ДОБАВЛЕНИЕ ИГРУШКИ В СПИСОК ДЛЯ РОЗЫГРЫША---\n -Введите id игрушки: " );
-    int id_toy=inputScanner.nextInt();
-    my_shop.add_lot_List(id_toy);
-    my_shop.show_lot_List();
+    System.out.println("---ДОБАВЛЕНИЕ ИГРУШКИ В СПИСОК ДЛЯ РОЗЫГРЫША---" );
+    System.out.println("1-добавить вручную-\n2-сформировать автоматически-\n Выберите действие:" );
+    int num_menu=inputScanner.nextInt();
+    if (num_menu==1){
+        System.out.println("-Введите id игрушки (от 101 до " + Toy.getNo()+"): " );
+        int id_toy=inputScanner.nextInt();
+        my_shop.add_lot_List(id_toy);
+        }
+     else {
+    if (num_menu==2){
+        System.out.println("-Введите количество игрушек для розыгрыша");
+        int size_toyList=inputScanner.nextInt();
+        my_shop.create_lot_List(size_toyList);
+        }
+    else {
+        System.out.println("Неверно введен пункт меню");
+    }
+   }
+   my_shop.show_lot_List();
+   
     break;
     case 4:
     System.out.println("---РОЗЫГРЫШ ПРИЗОВ---" );
-    my_shop.give_out_toy();
+    
+    //my_shop.show_lot_List();
+   my_shop.give_out_toy();
     break;
     case 5:
     System.out.println("---РАБОТА ОКОНЧЕНА!---" );

@@ -1,7 +1,9 @@
 package java_project1;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.StandardSocketOptions;
 import java.util.ArrayList;
+import java.util.Random;
 import java.time.LocalDate;
 
 public class Toy_shop {
@@ -41,12 +43,33 @@ public class Toy_shop {
                             }
         }
     }
+     /**Автоматически формирует список для розыгрыша
+     * @param sizeList
+     */
+    public void create_lot_List(int sizeList) {
+        ArrayList<Integer> weighListforID =new ArrayList<Integer>();
+        for(int i=0; i < toysList.size(); i++) {
+            Toy item  = toysList.get(i);
+            for (int j = 0; j < item.weight; j++) {
+                 weighListforID.add(item.id);
+                 
+            }
+           }
+           int startsize=toys_lot_List.size();
+           while (toys_lot_List.size() < startsize+sizeList) {
+            int index_id =(int)(Math.random() * weighListforID.size());
+            this.add_lot_List(weighListforID.get(index_id));
+           }
+               
+    }
     /**Показавает лист для розыгрыша
      * 
      */
     public void show_lot_List() {
+        int i=0;
         for (Toy item : toys_lot_List) {
-            System.out.println(item);
+            System.out.println("Toy"+ i +": "+ item.name);
+            i++;
         }
     }
     /**розыгрыш игрушек (выдает первую игрушку из списка, записывает в файл)
