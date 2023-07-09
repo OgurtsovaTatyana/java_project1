@@ -14,7 +14,7 @@ Scanner inputScanner = new Scanner(System.in);
 while (true) {     
 
 System.out.println("\nВас привествует магазин игрушек! Выберите действие:" );
-System.out.println(" 1. Посмотреть список игрушек \n 2. Добавить игрушку в магазин \n 3. Добавить игрушку в список для розыгрыша \n 4. Провести розыгрыш \n 5. Выход \n\n Введите число:" );
+System.out.println(" 1. Посмотреть список игрушек \n 2. Добавить игрушку в магазин \n 3. Добавить игрушку в список для розыгрыша \n 4. Провести розыгрыш \n 5. Изменить вес игрушки \n 6. Выход \n\n Введите число:" );
 int choice=inputScanner.nextInt();
 
 switch(choice){
@@ -57,11 +57,17 @@ switch(choice){
     break;
     case 4:
     System.out.println("---РОЗЫГРЫШ ПРИЗОВ---" );
-    
-    //my_shop.show_lot_List();
    my_shop.give_out_toy();
     break;
     case 5:
+    System.out.println("---ИЗМЕНИТЬ ВЕС ИГРУШКИ---" );
+    System.out.println("-Введите id игрушки (от 101 до " + Toy.getNo()+"): " );
+    int id_toy=inputScanner.nextInt();
+    System.out.println("-Введите новый вес: " );
+    int new_weight=inputScanner.nextInt();
+    my_shop.changeWeightToy(id_toy, new_weight);
+    break;
+    case 6:
     System.out.println("---РАБОТА ОКОНЧЕНА!---" );
     inputScanner.close();
     return;

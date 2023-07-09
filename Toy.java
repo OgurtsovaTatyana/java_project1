@@ -16,6 +16,9 @@ public class Toy {
         this.count =count;
         this.id=no;
     }
+    public void setWeight(int newWeight) {
+        this.weight = newWeight;
+    }
     @Override
     public String toString() {
         return "Toy [id=" + id + ", count=" + count + ", weight=" + weight + ", name=" + name + "]";

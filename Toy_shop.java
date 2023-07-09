@@ -62,6 +62,14 @@ public class Toy_shop {
            }
                
     }
+    public void changeWeightToy(int id_toy,int new_Weight) {
+        for(int i=0; i < toysList.size(); i++) {
+            Toy item  = toysList.get(i);
+            if (item.id==id_toy){
+                item.setWeight(new_Weight);
+            }
+    }
+}
     /**Показавает лист для розыгрыша
      * 
      */
